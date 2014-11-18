@@ -1,0 +1,416 @@
+@charset "utf-8";
+
+/********** GENERAL **********/
+*{padding:0; margin:0;}
+body {
+  background-image: url("../images/bg.jpg");
+}
+#site-wrapper {
+	width: 100%;	height:100%;
+	position:absolute;
+}
+#container {
+	width:1240px;	height:620px;
+	position:relative;
+	margin-left:auto;	margin-right:auto;
+	top:50%;	margin-top:-310px;
+	background-image:url(../images/main-bg.jpg);
+}
+
+/********** BOARD **********/
+#board, #boardcanvas {
+	position:absolute;
+	width:600px;	height:600px;
+	left:319px;	top:9px;
+  padding: 1px;
+  overflow:hidden;
+}
+#board {
+	background-image:url(../images/board.jpg);
+}
+#boardcanvas {
+  pointer-events:none;
+}
+.boardsquare {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  color: #000;
+  text-align: center;
+  vertical-align: middle;
+}
+.boardsquare.anchorloc {
+  background-image:url('../images/location.png');
+  padding: 13px 14px 12px 14px;
+  margin: -13px -14px -12px -14px;
+}
+.boardsquare.portal {
+	position:absolute;
+	background-image:url(../images/portal.png);
+  padding: 13px 14px 12px 14px;
+  margin: -13px -14px -12px -14px;
+	width: 40px;
+  height: 40px;
+  font-family: 'Comfortaa', cursive;
+	font-size:28px;
+	color:#fff;
+	text-align:center;
+	line-height:36px;
+}
+
+/********** PAWNS **********/
+.pawn {
+  position: absolute;
+  z-index: 1;
+	width:36px;
+  height:38px;
+  padding-left: 4px;
+  padding-top: 2px;
+  transition: left 1.5s, top 1.5s;
+  color: #fff;
+  font: 16px 'Comfortaa',cursive;
+}
+.purplepawn {
+	background-image:url(../images/sail-purple.png);
+}
+.orangepawn {
+	background-image:url(../images/sail-orange.png);
+}
+.yellowpawn {
+	background-image:url(../images/sail-yellow.png);
+}
+.cyanpawn {
+	background-image:url(../images/sail-cyan.png);
+}
+	.purplepawn.selectedpawn {
+		background-image:url(../images/sail-purple-selected.png);
+	}
+	.orangepawn.selectedpawn {
+		background-image:url(../images/sail-orange-selected.png);
+	}
+	.yellowpawn.selectedpawn {
+		background-image:url(../images/sail-yellow-selected.png);
+	}
+	.cyanpawn.selectedpawn {
+		background-image:url(../images/sail-cyan-selected.png);
+	}
+	
+/********** LEFT-SIDE BUTTONS **********/
+.btn-menu {
+	position:absolute;
+	width:70px; height:69px;
+	top:112px;
+	cursor:pointer;
+	background-image:url(../images/menu-btns.png);
+}
+#btn-menu-home {
+	left:24px;
+	background-position:0px 0px;
+}
+	#btn-menu-home:hover {background-position:0px 138px;}
+	#btn-menu-home:active {background-position:0px 69px;}
+#btn-menu-settings {
+	left:93px;
+	background-position:70px 0px;
+}
+	#btn-menu-settings:hover {background-position:71px 137px;}
+	#btn-menu-settings:active {background-position:71px 69px;}
+#btn-menu-rolles {
+	left:162px;
+	background-position:140px 0px;
+}
+	#btn-menu-rolles:hover {background-position:140px 137px;}
+	#btn-menu-rolles:active {background-position:140px 68px;}
+#btn-menu-highscore {
+	left:231px;
+	background-position:210px 0px;
+}
+	#btn-menu-highscore:hover {background-position:210px 138px;}
+	#btn-menu-highscore:active {background-position:210px 69px;}
+
+/********** CARDS **********/
+.card {
+	position:absolute;
+	width:83px; height:116px;
+	border-radius:8px;
+	box-shadow: 1px 3px 4px #141414;
+	cursor:pointer;
+}
+.card.selected {
+  border: 4px solid orange;
+}
+	#card-position-1 {left:28px;	top:190px;}
+	#card-position-2 {left:119px;	top:190px;}
+	#card-position-3 {left:210px;	top:190px;}
+	#card-position-4 {left:28px;	top:313px;}
+	#card-position-5 {left:119px;	top:313px;}
+	#card-position-6 {left:210px;	top:313px;}
+.card-type-1 {
+	background-image:url(../images/card-type-1.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-2 {
+	background-image:url(../images/card-type-2.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-3 {
+	background-image:url(../images/card-type-3.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-4 {
+	background-image:url(../images/card-type-4.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-5 {
+	background-image:url(../images/card-type-5.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-6 {
+	background-image:url(../images/card-type-6.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-7 {
+	background-image:url(../images/card-type-7.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-8 {
+	background-image:url(../images/card-type-8.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-9 {
+	background-image:url(../images/card-type-9.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-10 {
+	background-image:url(../images/card-type-10.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-11 {
+	background-image:url(../images/card-type-11.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-12 {
+	background-image:url(../images/card-type-12.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	}
+.card-type-switch {
+	background-image:url(../images/card-type-switch.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.card-type-joker {
+	background-image:url(../images/card-type-joker.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.card-type-wind {
+	background-image:url(../images/card-type-wind.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.card-type-bomb {
+	background-image:url(../images/card-type-bomb.png), url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.card-type-empty {
+	background-image:url(../images/card.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	opacity:0.3;
+}
+
+/********** CHAT **********/
+#chat-history {
+	position:absolute;
+	left:36px;	top:454px;	
+}
+.chat-sail-cyan {
+	width:20px;	height:20px;
+	background-image:url(../images/chat-sail-cyan.png);
+	background-repeat:no-repeat;
+	background-position:top;
+}
+.chat-sail-orange {
+	width:20px;	height:20px;
+	background-image:url(../images/chat-sail-orange.png);
+}
+.chat-sail-yellow {
+	width:20px;	height:20px;
+	background-image:url(../images/chat-sail-yellow.png);
+}
+.chat-sail-purple {
+	width:20px;	height:20px;
+	background-image:url(../images/chat-sail-purple.png);
+}
+.chat-text {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#333;
+	padding-left:15px;
+	width:205px;
+}
+#chat-add-new {
+	position:absolute;
+	left:40px;	top:565px;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:16px;
+		font-weight:bold;
+		color:#444;
+		width:205px;
+}
+#chat-send-btn {
+	position:absolute;
+	left:253px;	top:562px;
+	width:27px;	height:32px;
+	background-image:url(../images/chat-send-normal.png);
+	cursor:pointer;
+}
+	#chat-send-btn:hover {background-image:url(../images/chat-send-hover.png);}
+	#chat-send-btn:active {background-image:url(../images/chat-send-down.png);}
+
+/********** DICE **********/
+#btn-dice {
+  display:none;
+	position:absolute;
+	right:18px;	top:304px;
+	width:283px; height:69px;
+	cursor:pointer;
+	background-image:url(../images/btn-roll-dice-normal.png);
+}
+#btn-dice:hover {
+  background-image:url(../images/btn-roll-dice-hover.png);
+}
+#btn-dice:active {
+  background-image:url(../images/btn-roll-dice-down.png);
+}
+#vdie {
+  position:absolute;
+  width:62px;	height:62px;
+  right:194px;	top:427px;
+}
+#hdie {
+  position:absolute;
+  width:62px;	height:62px;
+  right:72px;	top:427px;
+}
+
+/********** MESSAGE **********/
+#info-text {
+	position:absolute;
+	width:232px;	height:70px;
+	padding:6px;
+	overflow-y:scroll;
+	right:36px;	top:188px;
+	font-size:16px;
+  font-family:Comfortaa,Arial,sans-serif;
+  font-weight:normal;
+	color:#13ac30;
+}
+	#old-text {opacity:0.5;}
+	#new-text {}
+		#info-text::-webkit-scrollbar{
+		width:8px;
+		background-color:#000;
+		} 
+		#info-text::-webkit-scrollbar-thumb{
+		background-color:#1a6d2a;
+		border-radius:4px;
+		}
+		#info-text::-webkit-scrollbar-thumb:hover{
+		background-color:#17972f;
+		border:1px solid #333333;
+		}
+		#info-text::-webkit-scrollbar-thumb:active{
+		background-color:#13ac30;
+		border:1px solid #333333;
+		} 
+		#info-text::-webkit-scrollbar-track{
+		border:1px gray solid;
+		border-radius:4px;
+		-webkit-box-shadow:0 0 6px gray inset;
+		} 
+#player-color {
+	position:absolute;
+	width:283px;	height:141px;
+	right:18px;	top:18px;
+}
+#btn-undo {
+	position:absolute;
+	width:74px;	height:69px;
+	right:227px;	top:542px;
+	cursor:pointer;
+	background-image:url(../images/sprite-undo.png);
+	overflow:hidden;
+	background-position:top;
+}
+	#btn-undo:hover {background-position:center;}
+	#btn-undo:active {background-position:bottom;}
+#btn-sail {
+	position:absolute;
+	width:210px;	height:69px;
+	overflow:hidden;
+	right:18px;	top:542px;
+	cursor:pointer;
+	background-image:url(../images/sprite-sail-away.png);
+	background-position:top;
+}
+	#btn-sail:hover {background-position:center;}
+	#btn-sail:active {background-position:bottom;}
+
+.possiblemovetarget {
+  border: 2px solid yellow;
+}
+img.used {
+  opacity:0.3;
+}
+
+/********** POP-UP MESSAGE BOX **********/
+.msgbox-bg {
+  position:absolute;
+  z-index: 2;
+  width:100%;
+  height:100%;
+  opacity:0.7;
+  background-color:#fff;
+}
+.msgbox-T {
+  position: absolute;
+  z-index: 2;
+  display:table;
+  width:100%;
+  height:100%;
+  margin:0;
+}
+.msgbox-TC {
+  display:table-cell;
+  vertical-align:middle;
+  margin:0;
+}
+.msgbox {
+  width:500px;
+  margin:0 auto;
+  padding:20px;
+  background-color:#fff;
+  opacity:1;
+  border: 2px solid #00f;
+}
+h2.msgbox-title {
+  font: bold 24px sans-serif;
+  margin-bottom: 8px;
+}
+.msgbox-text {
+  font: 16px sans-serif;
+}

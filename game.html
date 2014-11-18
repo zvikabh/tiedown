@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TieDown - game in progress</title>
+  <link rel="stylesheet" type="text/css" href="css/game.css">
+  <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+  <!--[if IE]>
+    <style type="text/css">
+      #boardcanvas {
+        background:none !important;
+      }
+    </style>
+  <![endif]-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src='/_ah/channel/jsapi'></script>
+  <script src="js/geometry.js"></script>
+  <script src="js/game.js"></script>
+</head>
+<body>
+<div id="site-wrapper">
+	<div id="container">
+		<!-- to the left of the board -->
+		<a id="btn-menu-home" class="btn-menu" title="Main Page"></a>
+		<a id="btn-menu-settings" class="btn-menu" title="Game Settings"></a>
+		<a id="btn-menu-rolles" class="btn-menu" title="Game Rules" href="rules.html"></a>
+		<a id="btn-menu-highscore" class="btn-menu" title="High Scores"></a>
+		
+		<a id="card-position-1" class="card card-type-wind" title="Wind"></a>
+		<a id="card-position-2" class="card card-type-1" title="Anchor 1"></a>
+		<a id="card-position-3" class="card card-type-bomb" title="Boom"></a>
+		<a id="card-position-4" class="card card-type-joker" title="Joker Anchor"></a>
+		<a id="card-position-5" class="card card-type-switch" title="Swift"></a>
+		<a id="card-position-6" class="card card-type-empty"></a>
+		
+		<div id="chat-history" style="display:none;">
+		<table>
+			<tr>
+				<td class="chat-sail-cyan"></td><!-- yellow / orange / cyan / purple -->
+				<td class="chat-text">
+		Hey, don’t let yellow keep the field...
+				</td>
+			</tr>
+			<tr>
+				<td class="chat-sail-yellow"></td>
+				<td class="chat-text">
+		Leave me be! go get Orange!<br>
+				</td>
+			</tr>
+			<tr>
+				<td class="chat-sail-cyan"></td>
+				<td class="chat-text">
+		Never!<br>
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div id="chat-add-new" style="display:none;"><p>type...</p></div>
+		<div id="chat-send-btn"></div>
+		
+    <!-- the board (filled in by js) -->
+    <div id="board" class="board">
+      <div id="orangepawn-1" class="pawn orangepawn"></div>
+      <div id="orangepawn-2" class="pawn orangepawn"></div>
+      <div id="orangepawn-3" class="pawn orangepawn"></div>
+      <div id="purplepawn-1" class="pawn purplepawn"></div>
+      <div id="purplepawn-2" class="pawn purplepawn"></div>
+      <div id="purplepawn-3" class="pawn purplepawn"></div>
+    </div>
+    <canvas id="boardcanvas" class="boardcanvas"></canvas>
+    
+		<!-- to the right of the board -->
+		<div id="player-color"></div>
+
+		<div id="info-text">
+		<p>
+		<span id="old-text"></span>
+		<span id="new-text"></span>
+		</p>
+		</div>
+		
+		<a id="btn-dice" title="Roll Dice"></a>
+		<div id="vdie"><img src="images/dice-1.jpg"></div>
+		<div id="hdie"><img src="images/dice-2.jpg"></div>
+
+		<a id="btn-undo" title="Replay Turn"></a>
+		<a id="btn-sail" title="Submit Move"></a>
+	
+	</div><!-- END container-->
+</div><!--END site-wrapper-->
+
+<!--Messagebox-->
+<div id="msgbox-wrapper" class="msgbox-wrapper" style="display:none">
+  <div class="msgbox-bg"></div>
+  <div class="msgbox-T">
+    <div class="msgbox-TC">
+      <div class="msgbox">
+        <h2 class="msgbox-title" id="msgbox-title">Waiting for more players...</h2>
+        <div class="msgbox-text" id="msgbox-text">
+          You may either wait for a random player to join,
+          or send the following URL to your friend and ask them to join:<br>
+          <span id="msgbox-join-url"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+application: tie-down
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /favicon\.ico
+  static_files: images/favicon.ico
+  upload: images/favicon\.ico
+  login: required
+
+- url: /images
+  static_dir: images
+  login: required
+
+- url: /css
+  static_dir: css
+  login: required
+
+- url: /js
+  static_dir: js
+  login: required
+
+- url: /$
+  static_files: index.html
+  upload: index\.html
+  login: required
+
+- url: /game\.html
+  static_files: game.html
+  upload: game\.html
+  login: required
+
+- url: /rules\.html
+  static_files: rules.html
+  upload: rules\.html
+
+- url: .*
+  script: main.app
+  login: required
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
